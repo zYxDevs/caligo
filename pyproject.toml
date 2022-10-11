@@ -40,7 +40,7 @@ colorlog = "^6.4.1"
 pymongo = "^3.12.1"
 Pyrogram = "^1.2.9"
 python-dotenv = "^0.19.0"
-TgCrypto = "^1.2.2"
+TgCrypto = "^1.2.4"
 
 # Core Extra
 dnspython = "^2.1.0"
