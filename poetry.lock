@@ -51,7 +51,7 @@ multidict = ">=4.5,<7.0"
 yarl = ">=1.0,<2.0"
 
 [package.extras]
-speedups = ["aiodns", "brotli", "cchardet"]
+speedups = ["Brotli", "aiodns", "cchardet"]
 
 [[package]]
 name = "aiopath"
@@ -101,8 +101,8 @@ idna = ">=2.8"
 sniffio = ">=1.1"
 
 [package.extras]
-doc = ["sphinx-rtd-theme", "sphinx-autodoc-typehints (>=1.2.0)"]
-test = ["coverage[toml] (>=4.5)", "hypothesis (>=4.0)", "pytest (>=6.0)", "pytest-mock (>=3.6.1)", "trustme", "uvloop (<0.15)", "mock (>=4)", "uvloop (>=0.15)"]
+doc = ["sphinx-autodoc-typehints (>=1.2.0)", "sphinx-rtd-theme"]
+test = ["coverage[toml] (>=4.5)", "hypothesis (>=4.0)", "mock (>=4)", "pytest (>=6.0)", "pytest-mock (>=3.6.1)", "trustme", "uvloop (<0.15)", "uvloop (>=0.15)"]
 trio = ["trio (>=0.16)"]
 
 [[package]]
@@ -141,10 +141,10 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
 [package.extras]
-dev = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six", "zope.interface", "furo", "sphinx", "pre-commit"]
+dev = ["coverage[toml] (>=5.0.2)", "furo", "hypothesis", "pre-commit", "pympler", "pytest (>=4.3.0)", "six", "sphinx", "zope.interface"]
 docs = ["furo", "sphinx", "zope.interface"]
 tests = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six", "zope.interface"]
-tests_no_zope = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six"]
+tests-no-zope = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six"]
 
 [[package]]
 name = "beautifulsoup4"
@@ -221,7 +221,7 @@ optional = false
 python-versions = ">=3.5.0"
 
 [package.extras]
-unicode_backport = ["unicodedata2"]
+unicode-backport = ["unicodedata2"]
 
 [[package]]
 name = "colorama"
@@ -262,11 +262,11 @@ optional = false
 python-versions = ">=3.6"
 
 [package.extras]
+curio = ["curio (>=1.2)", "sniffio (>=1.1)"]
 dnssec = ["cryptography (>=2.6)"]
 doh = ["requests", "requests-toolbelt"]
 idna = ["idna (>=2.1)"]
-curio = ["curio (>=1.2)", "sniffio (>=1.1)"]
-trio = ["trio (>=0.14.0)", "sniffio (>=1.1)"]
+trio = ["sniffio (>=1.1)", "trio (>=0.14.0)"]
 
 [[package]]
 name = "emoji"
@@ -277,7 +277,7 @@ optional = false
 python-versions = "*"
 
 [package.extras]
-dev = ["pytest", "coverage", "coveralls"]
+dev = ["coverage", "coveralls", "pytest"]
 
 [[package]]
 name = "filelock"
@@ -333,6 +333,7 @@ packaging = ">=14.3"
 protobuf = ">=3.12.0"
 pytz = "*"
 requests = ">=2.18.0,<3.0.0dev"
+setuptools = ">=40.3.0"
 six = ">=1.13.0"
 
 [package.extras]
@@ -367,6 +368,7 @@ python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*"
 cachetools = ">=2.0.0,<5.0"
 pyasn1-modules = ">=0.2.1"
 rsa = {version = ">=3.1.4,<5", markers = "python_version >= \"3.6\""}
+setuptools = ">=40.3.0"
 six = ">=1.9.0"
 
 [package.extras]
@@ -454,10 +456,10 @@ optional = false
 python-versions = ">=3.6.1,<4.0"
 
 [package.extras]
-pipfile_deprecated_finder = ["pipreqs", "requirementslib"]
-requirements_deprecated_finder = ["pipreqs", "pip-api"]
 colors = ["colorama (>=0.4.3,<0.5.0)"]
+pipfile-deprecated-finder = ["pipreqs", "requirementslib"]
 plugins = ["setuptools"]
+requirements-deprecated-finder = ["pip-api", "pipreqs"]
 
 [[package]]
 name = "meval"
@@ -606,7 +608,7 @@ python-versions = "*"
 aws = ["pymongo-auth-aws (<2.0.0)"]
 encryption = ["pymongocrypt (>=1.1.0,<2.0.0)"]
 gssapi = ["pykerberos"]
-ocsp = ["pyopenssl (>=17.2.0)", "requests (<3.0.0)", "service-identity (>=18.1.0)", "certifi"]
+ocsp = ["certifi", "pyopenssl (>=17.2.0)", "requests (<3.0.0)", "service-identity (>=18.1.0)"]
 snappy = ["python-snappy"]
 srv = ["dnspython (>=1.16.0,<1.17.0)"]
 tls = ["ipaddress"]
@@ -683,7 +685,7 @@ idna = ">=2.5,<3"
 urllib3 = ">=1.21.1,<1.27"
 
 [package.extras]
-security = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)"]
+security = ["cryptography (>=1.3.4)", "pyOpenSSL (>=0.14)"]
 socks = ["PySocks (>=1.5.6,!=1.5.7)", "win-inet-pton"]
 
 [[package]]
@@ -711,6 +713,19 @@ python-versions = ">=3.5, <4"
 
 [package.dependencies]
 pyasn1 = ">=0.1.3"
+
+[[package]]
+name = "setuptools"
+version = "65.5.1"
+description = "Easily download, build, install, upgrade, and uninstall Python packages"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+docs = ["furo", "jaraco.packaging (>=9)", "jaraco.tidelift (>=1.4)", "pygments-github-lexers (==0.0.5)", "rst.linker (>=1.9)", "sphinx (>=3.5)", "sphinx-favicon", "sphinx-hoverxref (<2)", "sphinx-inline-tabs", "sphinx-notfound-page (==0.8.3)", "sphinx-reredirects", "sphinxcontrib-towncrier"]
+testing = ["build[virtualenv]", "filelock (>=3.4.0)", "flake8 (<5)", "flake8-2020", "ini2toml[lite] (>=0.9)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "pip (>=19.1)", "pip-run (>=8.8)", "pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=1.3)", "pytest-flake8", "pytest-mypy (>=0.9.1)", "pytest-perf", "pytest-timeout", "pytest-xdist", "tomli-w (>=1.0.0)", "virtualenv (>=13.0.0)", "wheel"]
+testing-integration = ["build[virtualenv]", "filelock (>=3.4.0)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "pytest", "pytest-enabler", "pytest-xdist", "tomli", "virtualenv (>=13.0.0)", "wheel"]
 
 [[package]]
 name = "six"
@@ -765,11 +780,11 @@ doc = ["reno", "sphinx", "tornado (>=4.5)"]
 
 [[package]]
 name = "tgcrypto"
-version = "1.2.2"
-description = "Fast Telegram Crypto Library for Python"
+version = "1.2.5"
+description = "Fast and Portable Cryptography Extension Library for Pyrogram"
 category = "main"
 optional = false
-python-versions = "~=3.6"
+python-versions = "~=3.7"
 
 [[package]]
 name = "toml"
@@ -805,7 +820,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4"
 
 [package.extras]
 brotli = ["brotlipy (>=0.6.0)"]
-secure = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "certifi", "ipaddress"]
+secure = ["certifi", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "ipaddress", "pyOpenSSL (>=0.14)"]
 socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 
 [[package]]
@@ -824,7 +839,7 @@ six = ">=1.9.0,<2"
 
 [package.extras]
 docs = ["proselint (>=0.10.2)", "sphinx (>=3)", "sphinx-argparse (>=0.2.5)", "sphinx-rtd-theme (>=0.4.3)", "towncrier (>=19.9.0rc1)"]
-testing = ["coverage (>=4)", "coverage-enable-subprocess (>=1)", "flaky (>=3)", "pytest (>=4)", "pytest-env (>=0.6.2)", "pytest-freezegun (>=0.4.1)", "pytest-mock (>=2)", "pytest-randomly (>=1)", "pytest-timeout (>=1)", "packaging (>=20.0)", "xonsh (>=0.9.16)"]
+testing = ["coverage (>=4)", "coverage-enable-subprocess (>=1)", "flaky (>=3)", "packaging (>=20.0)", "pytest (>=4)", "pytest-env (>=0.6.2)", "pytest-freezegun (>=0.4.1)", "pytest-mock (>=2)", "pytest-randomly (>=1)", "pytest-timeout (>=1)", "xonsh (>=0.9.16)"]
 
 [[package]]
 name = "yapf"
@@ -849,7 +864,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "5fe394c6d18814f2600fa29ce6c4e85724c09b46486d64807e6ecd345076df11"
+content-hash = "74aee1ece68d4e713c7c552831368ef77da7e1fc38db9f04d3deadb9088ef762"
 
 [metadata.files]
 aioaria2 = [
@@ -1322,34 +1337,12 @@ pyaes = [
     {file = "pyaes-1.6.1.tar.gz", hash = "sha256:02c1b1405c38d3c370b085fb952dd8bea3fadcee6411ad99f312cc129c536d8f"},
 ]
 pyasn1 = [
-    {file = "pyasn1-0.4.8-py2.4.egg", hash = "sha256:fec3e9d8e36808a28efb59b489e4528c10ad0f480e57dcc32b4de5c9d8c9fdf3"},
-    {file = "pyasn1-0.4.8-py2.5.egg", hash = "sha256:0458773cfe65b153891ac249bcf1b5f8f320b7c2ce462151f8fa74de8934becf"},
-    {file = "pyasn1-0.4.8-py2.6.egg", hash = "sha256:5c9414dcfede6e441f7e8f81b43b34e834731003427e5b09e4e00e3172a10f00"},
-    {file = "pyasn1-0.4.8-py2.7.egg", hash = "sha256:6e7545f1a61025a4e58bb336952c5061697da694db1cae97b116e9c46abcf7c8"},
     {file = "pyasn1-0.4.8-py2.py3-none-any.whl", hash = "sha256:39c7e2ec30515947ff4e87fb6f456dfc6e84857d34be479c9d4a4ba4bf46aa5d"},
-    {file = "pyasn1-0.4.8-py3.1.egg", hash = "sha256:78fa6da68ed2727915c4767bb386ab32cdba863caa7dbe473eaae45f9959da86"},
-    {file = "pyasn1-0.4.8-py3.2.egg", hash = "sha256:08c3c53b75eaa48d71cf8c710312316392ed40899cb34710d092e96745a358b7"},
-    {file = "pyasn1-0.4.8-py3.3.egg", hash = "sha256:03840c999ba71680a131cfaee6fab142e1ed9bbd9c693e285cc6aca0d555e576"},
-    {file = "pyasn1-0.4.8-py3.4.egg", hash = "sha256:7ab8a544af125fb704feadb008c99a88805126fb525280b2270bb25cc1d78a12"},
-    {file = "pyasn1-0.4.8-py3.5.egg", hash = "sha256:e89bf84b5437b532b0803ba5c9a5e054d21fec423a89952a74f87fa2c9b7bce2"},
-    {file = "pyasn1-0.4.8-py3.6.egg", hash = "sha256:014c0e9976956a08139dc0712ae195324a75e142284d5f87f1a87ee1b068a359"},
-    {file = "pyasn1-0.4.8-py3.7.egg", hash = "sha256:99fcc3c8d804d1bc6d9a099921e39d827026409a58f2a720dcdb89374ea0c776"},
     {file = "pyasn1-0.4.8.tar.gz", hash = "sha256:aef77c9fb94a3ac588e87841208bdec464471d9871bd5050a287cc9a475cd0ba"},
 ]
 pyasn1-modules = [
     {file = "pyasn1-modules-0.2.8.tar.gz", hash = "sha256:905f84c712230b2c592c19470d3ca8d552de726050d1d1716282a1f6146be65e"},
-    {file = "pyasn1_modules-0.2.8-py2.4.egg", hash = "sha256:0fe1b68d1e486a1ed5473f1302bd991c1611d319bba158e98b106ff86e1d7199"},
-    {file = "pyasn1_modules-0.2.8-py2.5.egg", hash = "sha256:fe0644d9ab041506b62782e92b06b8c68cca799e1a9636ec398675459e031405"},
-    {file = "pyasn1_modules-0.2.8-py2.6.egg", hash = "sha256:a99324196732f53093a84c4369c996713eb8c89d360a496b599fb1a9c47fc3eb"},
-    {file = "pyasn1_modules-0.2.8-py2.7.egg", hash = "sha256:0845a5582f6a02bb3e1bde9ecfc4bfcae6ec3210dd270522fee602365430c3f8"},
     {file = "pyasn1_modules-0.2.8-py2.py3-none-any.whl", hash = "sha256:a50b808ffeb97cb3601dd25981f6b016cbb3d31fbf57a8b8a87428e6158d0c74"},
-    {file = "pyasn1_modules-0.2.8-py3.1.egg", hash = "sha256:f39edd8c4ecaa4556e989147ebf219227e2cd2e8a43c7e7fcb1f1c18c5fd6a3d"},
-    {file = "pyasn1_modules-0.2.8-py3.2.egg", hash = "sha256:b80486a6c77252ea3a3e9b1e360bc9cf28eaac41263d173c032581ad2f20fe45"},
-    {file = "pyasn1_modules-0.2.8-py3.3.egg", hash = "sha256:65cebbaffc913f4fe9e4808735c95ea22d7a7775646ab690518c056784bc21b4"},
-    {file = "pyasn1_modules-0.2.8-py3.4.egg", hash = "sha256:15b7c67fabc7fc240d87fb9aabf999cf82311a6d6fb2c70d00d3d0604878c811"},
-    {file = "pyasn1_modules-0.2.8-py3.5.egg", hash = "sha256:426edb7a5e8879f1ec54a1864f16b882c2837bfd06eee62f2c982315ee2473ed"},
-    {file = "pyasn1_modules-0.2.8-py3.6.egg", hash = "sha256:cbac4bc38d117f2a49aeedec4407d23e8866ea4ac27ff2cf7fb3e5b570df19e0"},
-    {file = "pyasn1_modules-0.2.8-py3.7.egg", hash = "sha256:c29a5e5cc7a3f05926aff34e097e84f8589cd790ce0ed41b67aed6857b26aafd"},
 ]
 pymongo = [
     {file = "pymongo-3.12.1-cp27-cp27m-macosx_10_14_intel.whl", hash = "sha256:c4653830375ab019b86d218c749ad38908b74182b2863d09936aa8d7f990d30e"},
@@ -1457,7 +1450,6 @@ pymongo = [
     {file = "pymongo-3.12.1-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.whl", hash = "sha256:6f07888e3b73c0dfa46f12d098760494f5f23fd66923a6615edfe486e6a7649c"},
     {file = "pymongo-3.12.1-cp39-cp39-win32.whl", hash = "sha256:77dddf596fb065de29fb39992fbc81301f7fd0003be649b7fa7448c77ca53bed"},
     {file = "pymongo-3.12.1-cp39-cp39-win_amd64.whl", hash = "sha256:979e34db4f3dc5710c18db437aaf282f691092b352e708cb2afd4df287698c76"},
-    {file = "pymongo-3.12.1-py2.7-macosx-10.14-intel.egg", hash = "sha256:c04e84ccf590933a266180286d8b6a5fc844078a5d934432628301bd8b5f9ca7"},
     {file = "pymongo-3.12.1.tar.gz", hash = "sha256:704879b6a54c45ad76cea7c6789c1ae7185050acea7afd15b58318fa1932ed45"},
 ]
 pyparsing = [
@@ -1519,11 +1511,14 @@ requests = [
 requests-oauthlib = [
     {file = "requests-oauthlib-1.3.0.tar.gz", hash = "sha256:b4261601a71fd721a8bd6d7aa1cc1d6a8a93b4a9f5e96626f8e4d91e8beeaa6a"},
     {file = "requests_oauthlib-1.3.0-py2.py3-none-any.whl", hash = "sha256:7f71572defaecd16372f9006f33c2ec8c077c3cfa6f5911a9a90202beb513f3d"},
-    {file = "requests_oauthlib-1.3.0-py3.7.egg", hash = "sha256:fa6c47b933f01060936d87ae9327fead68768b69c6c9ea2109c48be30f2d4dbc"},
 ]
 rsa = [
     {file = "rsa-4.7.2-py3-none-any.whl", hash = "sha256:78f9a9bf4e7be0c5ded4583326e7461e3a3c5aae24073648b4bdfa797d78c9d2"},
     {file = "rsa-4.7.2.tar.gz", hash = "sha256:9d689e6ca1b3038bc82bf8d23e944b6b6037bc02301a574935b2dd946e0353b9"},
+]
+setuptools = [
+    {file = "setuptools-65.5.1-py3-none-any.whl", hash = "sha256:d0b9a8433464d5800cbe05094acf5c6d52a91bfac9b52bcfc4d41382be5d5d31"},
+    {file = "setuptools-65.5.1.tar.gz", hash = "sha256:e197a19aa8ec9722928f2206f8de752def0e4c9fc6953527360d1c36d94ddb2f"},
 ]
 six = [
     {file = "six-1.15.0-py2.py3-none-any.whl", hash = "sha256:8b74bedcbbbaca38ff6d7491d76f2b06b3592611af620f8426e82dddb04a5ced"},
@@ -1550,39 +1545,62 @@ tenacity = [
     {file = "tenacity-8.0.1.tar.gz", hash = "sha256:43242a20e3e73291a28bcbcacfd6e000b02d3857a9a9fff56b297a27afdc932f"},
 ]
 tgcrypto = [
-    {file = "TgCrypto-1.2.2-cp36-cp36m-macosx_10_9_x86_64.whl", hash = "sha256:2073aa6bbc809a56ae3d54e0f496cacaee6e5cb7c08682153c992eae72b4fbb8"},
-    {file = "TgCrypto-1.2.2-cp36-cp36m-manylinux1_i686.whl", hash = "sha256:bca8bcc1432d00955110173d0acd8410e2911ed9c8d05afae1a2ace4748314f1"},
-    {file = "TgCrypto-1.2.2-cp36-cp36m-manylinux1_x86_64.whl", hash = "sha256:4a6c9d045a68eda43e4064aba32dbf1c40472143ed88f20315dfad867f9cddfb"},
-    {file = "TgCrypto-1.2.2-cp36-cp36m-manylinux2010_i686.whl", hash = "sha256:611a02defa3dc0c4ead98987992cb7d967c4741f477a27fececd31da367b2046"},
-    {file = "TgCrypto-1.2.2-cp36-cp36m-manylinux2010_x86_64.whl", hash = "sha256:d118dd9f297406d385d2bdd6e92ecc3a8443ea1c35ce70b4e892ce95c3808fb5"},
-    {file = "TgCrypto-1.2.2-cp36-cp36m-manylinux2014_aarch64.whl", hash = "sha256:e34917079682579a90dbcadb6b44bc3cbb73efb1657e7dc19839de2428922d30"},
-    {file = "TgCrypto-1.2.2-cp36-cp36m-win32.whl", hash = "sha256:8160b2f0c4b9e5672567d53f5a0f4d5c1ada54021dc93225b38a802ffa42b4e0"},
-    {file = "TgCrypto-1.2.2-cp36-cp36m-win_amd64.whl", hash = "sha256:b5c7cb0e179c29b77f1b2b806edb7d01d9b4f205ca4f65c40375a3bb6a43bea4"},
-    {file = "TgCrypto-1.2.2-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:a0238007a6a68b7a99d118cfaa49a72b024a5bc3f7e9a60b07c1ba850a8d1d45"},
-    {file = "TgCrypto-1.2.2-cp37-cp37m-manylinux1_i686.whl", hash = "sha256:7465a7df82cd8f79ea434f3e958d010fb5db80099f4034d441f2d6119afbdc9c"},
-    {file = "TgCrypto-1.2.2-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:8ee83902dd1e8bee467df6b58acb5e08e72a655afa1da655561d3e73edbef936"},
-    {file = "TgCrypto-1.2.2-cp37-cp37m-manylinux2010_i686.whl", hash = "sha256:aa13cd10e8edf2520f3bff4f3327347e2883945c8b8c4a55f2b886f61cac13fa"},
-    {file = "TgCrypto-1.2.2-cp37-cp37m-manylinux2010_x86_64.whl", hash = "sha256:37259c0a81d9170a1c9213d898e3ad2ec2973be361428e92be722f8af2029fb9"},
-    {file = "TgCrypto-1.2.2-cp37-cp37m-manylinux2014_aarch64.whl", hash = "sha256:cad01599f511c502518f99869069d311a9e3df37324e077ca5742061395daa84"},
-    {file = "TgCrypto-1.2.2-cp37-cp37m-win32.whl", hash = "sha256:ab0cc75142fab303bb7c8be5c60f0bff02378921d7cb3269db5d46bbc6c1792b"},
-    {file = "TgCrypto-1.2.2-cp37-cp37m-win_amd64.whl", hash = "sha256:feb71d6865cbf781ef36aeca075b6b86a19f3367958677ecd4912c69f25aa0af"},
-    {file = "TgCrypto-1.2.2-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:6efe4b3f050fe6c3bd820abf4a4c0854ea5fcb934bf76a9155e51347fc7d6796"},
-    {file = "TgCrypto-1.2.2-cp38-cp38-manylinux1_i686.whl", hash = "sha256:99154a515f68e75ddf76082c64eae522fe08620d9bcf8ebbf1d2f931bed07781"},
-    {file = "TgCrypto-1.2.2-cp38-cp38-manylinux1_x86_64.whl", hash = "sha256:c7d1180c63b9cf774d474a0c6c27d7f3ee367d808589bbe218e4567ebc6bd4df"},
-    {file = "TgCrypto-1.2.2-cp38-cp38-manylinux2010_i686.whl", hash = "sha256:3cd17b033754c7dc08b346ac430e81a162a143bb42a7ffc5b8420872e5432f51"},
-    {file = "TgCrypto-1.2.2-cp38-cp38-manylinux2010_x86_64.whl", hash = "sha256:d4e1b08733c09c0056ede44366ebe65cec7a5f19b78ff009aacbc9ac9158fcf6"},
-    {file = "TgCrypto-1.2.2-cp38-cp38-manylinux2014_aarch64.whl", hash = "sha256:cb9c74812093554de4c99578758753a3034a62ad23672e4b80ce8381ec93eb6f"},
-    {file = "TgCrypto-1.2.2-cp38-cp38-win32.whl", hash = "sha256:1d2223d3700590b63df905b825f7e01aee1da7a7309d0a7cd8496fe0cfce9a0c"},
-    {file = "TgCrypto-1.2.2-cp38-cp38-win_amd64.whl", hash = "sha256:bf210e4d7320d75737092bbb9f67b8d5fd2146fd2dc6786337961acbc9d94945"},
-    {file = "TgCrypto-1.2.2-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:c89c25678704890ebe653ee528046844eb8470d205235a21c9db91cd4d12ed85"},
-    {file = "TgCrypto-1.2.2-cp39-cp39-manylinux1_i686.whl", hash = "sha256:230cb83d87ed9d289445801483de35035d60f14811a601c3b80dbf68fdb15a18"},
-    {file = "TgCrypto-1.2.2-cp39-cp39-manylinux1_x86_64.whl", hash = "sha256:0efb29c804be7c2a66ea0855665d6196e0643f17f6e2c2c768aa0b5b784690de"},
-    {file = "TgCrypto-1.2.2-cp39-cp39-manylinux2010_i686.whl", hash = "sha256:1292a586bbf161d23beeacc0ddf5b26553c875d380d14d08b6c2283dabd05447"},
-    {file = "TgCrypto-1.2.2-cp39-cp39-manylinux2010_x86_64.whl", hash = "sha256:36a06b45e5776a463b1484b0810c9ce0c79d16ee954ace5fe98fc63c6fe6244d"},
-    {file = "TgCrypto-1.2.2-cp39-cp39-manylinux2014_aarch64.whl", hash = "sha256:0c7fe235c703099d2ed27d6b4d51823625b84315af2f20aec07420260ef6543e"},
-    {file = "TgCrypto-1.2.2-cp39-cp39-win32.whl", hash = "sha256:e2c95040772d7db6c4ae55868de38c218c806edbef969f6de17983a2663b9699"},
-    {file = "TgCrypto-1.2.2-cp39-cp39-win_amd64.whl", hash = "sha256:476a413105d96b6f87a5f58b13e2de3b5328cdc98c426758727dd1f8049bca65"},
-    {file = "TgCrypto-1.2.2.tar.gz", hash = "sha256:df1d7bc592309eab34ea132f41acc2d7d6e0756ec5fbc0263922cb0e0326c6ef"},
+    {file = "TgCrypto-1.2.5-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:4507102377002966f35f2481830b7529e00c9bbff8c7d1e09634f984af801675"},
+    {file = "TgCrypto-1.2.5-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:38fe25c0d79b41d7a89caba2a78dea0358e17ca73b033cefd16abed680685829"},
+    {file = "TgCrypto-1.2.5-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:c035bf8ef89846f67e77e82ea85c089b6ea30631b32e8ac1a6511b9be52ab065"},
+    {file = "TgCrypto-1.2.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f594e2680daf20dbac6bf56862f567ddc3cc8d6a19757ed07faa8320ff7acee4"},
+    {file = "TgCrypto-1.2.5-cp310-cp310-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:8723a16076e229ffdf537fdb5e638227d10f44ca43e6939db1eab524de6eaed7"},
+    {file = "TgCrypto-1.2.5-cp310-cp310-musllinux_1_1_i686.whl", hash = "sha256:c1c8d974b8b2d7132364b6f0f6712b92bfe47ab9c5dcee25c70327ff68d22d95"},
+    {file = "TgCrypto-1.2.5-cp310-cp310-musllinux_1_1_x86_64.whl", hash = "sha256:89d9c143a1fcdb2562a4aa887152abbe9253e1979d7bebef2b489148e0bbe086"},
+    {file = "TgCrypto-1.2.5-cp310-cp310-win32.whl", hash = "sha256:aa4bc1d11d4a90811c162abd45a5981f171679d1b5bd0322cd7ccd16447366a2"},
+    {file = "TgCrypto-1.2.5-cp310-cp310-win_amd64.whl", hash = "sha256:39145103614c5e38fe938549742d355920f4a0778fa8259eb69c0c85ba4b1d28"},
+    {file = "TgCrypto-1.2.5-cp311-cp311-macosx_10_9_universal2.whl", hash = "sha256:59597cdb1c87eb1184088563d20b42a8f2e431e9334fed64926079044ad2a4af"},
+    {file = "TgCrypto-1.2.5-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:1283337ae75b02406dd700377b8b783e70033b548492517df6e6c4156b0ed69c"},
+    {file = "TgCrypto-1.2.5-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:1735437df0023a40e5fdd95e6b09ce806ec8f2cd2f8879023818840dfae60cab"},
+    {file = "TgCrypto-1.2.5-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:cfa17a20206532c6d2442c9d7a7f6434120bd75896ad9a3e9b9277477afa084f"},
+    {file = "TgCrypto-1.2.5-cp311-cp311-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:48da3674474839e5619e7430ff1f98aed9f55369f3cfaef7f65511852869572e"},
+    {file = "TgCrypto-1.2.5-cp311-cp311-musllinux_1_1_i686.whl", hash = "sha256:b49e982e5b156be821a5235bd9102c00dc506a58607e2c8bd50ac872724a951f"},
+    {file = "TgCrypto-1.2.5-cp311-cp311-musllinux_1_1_x86_64.whl", hash = "sha256:9d9f13586065a6d86d05c16409054033a84be208acee29b49f6f194e27b08642"},
+    {file = "TgCrypto-1.2.5-cp311-cp311-win32.whl", hash = "sha256:10dd3870aecb1a783c6eafd3b164b2149dbc93a9ee13feb7e6f5c58f87c24cd0"},
+    {file = "TgCrypto-1.2.5-cp311-cp311-win_amd64.whl", hash = "sha256:a1beec47d6af8b509af7cf266e30f7703208076076594714005b42d2c25225b3"},
+    {file = "TgCrypto-1.2.5-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:c133ddc95ae9c6cd6ad742c4b8c30191214db8dc724268bee59a339e22b2028b"},
+    {file = "TgCrypto-1.2.5-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:7f6537f6af3d80be67bd2625a0990ee88c6ae58d33bdb88d99591bd6e97ee7a0"},
+    {file = "TgCrypto-1.2.5-cp37-cp37m-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:bdebbd9cffd10c42a2f60886dcab0272ddd38330d0cf7ccf026230b826573f59"},
+    {file = "TgCrypto-1.2.5-cp37-cp37m-musllinux_1_1_i686.whl", hash = "sha256:45683659ec6475ee8ff60e12167ec19aacfd7527decafe446434fa1a7e6760a7"},
+    {file = "TgCrypto-1.2.5-cp37-cp37m-musllinux_1_1_x86_64.whl", hash = "sha256:eafad246fd9aa63ff709a6e8c905c24fd7520ef96e33a2c3e1ccdb4fb2b2f331"},
+    {file = "TgCrypto-1.2.5-cp37-cp37m-win32.whl", hash = "sha256:1445217d22101946d38ee7d628cdb3de92db4eb130183a22030c07d7888f21b0"},
+    {file = "TgCrypto-1.2.5-cp37-cp37m-win_amd64.whl", hash = "sha256:b7e8402fe4023dc9666c0bc1b30fcf0d98a294e48d35f311a3eadfe105af04d4"},
+    {file = "TgCrypto-1.2.5-cp38-cp38-macosx_10_9_universal2.whl", hash = "sha256:56e1ec34e75fa2e3dcf7f74f1017d8e16c1eb8a8e031eaaa06c57f836e0d3bcc"},
+    {file = "TgCrypto-1.2.5-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:ca8814d6cc412775a43a021fce2d23e83a5336e9e9f38d0998d821cdf55c1d50"},
+    {file = "TgCrypto-1.2.5-cp38-cp38-macosx_11_0_arm64.whl", hash = "sha256:bb82e53f20ce5653573832f3c05fa525cc1769bdd685408b19f26d82d5e9001b"},
+    {file = "TgCrypto-1.2.5-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:0133936eac63cc9529b497d759b7d0ca21e491bb42481b40b603ee63bb8c10b7"},
+    {file = "TgCrypto-1.2.5-cp38-cp38-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:76fe0a3ad838dcf300ac88233cbffc2ad63478eb0ae9fa671694e184d88ec1cd"},
+    {file = "TgCrypto-1.2.5-cp38-cp38-musllinux_1_1_i686.whl", hash = "sha256:7070c6e063befb6d04eab46e8b1ffbee47a497971be11496d23837fc007e7685"},
+    {file = "TgCrypto-1.2.5-cp38-cp38-musllinux_1_1_x86_64.whl", hash = "sha256:ed53d0c4a5e6f75d4b1cab17535afe210cd3120fb88f44a8c4562d43c2a3bb16"},
+    {file = "TgCrypto-1.2.5-cp38-cp38-win32.whl", hash = "sha256:f7ec9f0a571fcc38fbee224943ed9918123f752ac19bae5c195d8322f5b20fab"},
+    {file = "TgCrypto-1.2.5-cp38-cp38-win_amd64.whl", hash = "sha256:362ab28fc75e6b066e5bb15fb5296f75f4238d6c1cbcaaa1e5756cd5c168b74b"},
+    {file = "TgCrypto-1.2.5-cp39-cp39-macosx_10_9_universal2.whl", hash = "sha256:7885a75db09ce8bdba42d2c332085bfe314f232541a729808c7507ffa261ff9a"},
+    {file = "TgCrypto-1.2.5-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:0d28aa317364a5c27317fe97a48267aa1c65c9aaf589909e97489ebe82a714e3"},
+    {file = "TgCrypto-1.2.5-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:940974e19044dc65bcf7b9c5255173b896dff010142f3833047dc55d59cde21c"},
+    {file = "TgCrypto-1.2.5-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:457c657dd10ffb4bbbb007132a0f6a7bee5080176a98c51f285fedf636b624cb"},
+    {file = "TgCrypto-1.2.5-cp39-cp39-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:539bdc6b9239fb6a6b134591a998dc7f50d4dcc4fed861f80540682acc0c3802"},
+    {file = "TgCrypto-1.2.5-cp39-cp39-musllinux_1_1_i686.whl", hash = "sha256:4d70d5517d64ca952896b726d22c8a66594e6f6259ee2cb4fa134c02d0e8c3e0"},
+    {file = "TgCrypto-1.2.5-cp39-cp39-musllinux_1_1_x86_64.whl", hash = "sha256:90b6337d3ae4348ed14f89dd2ebf7011fa63d67a48c8a98d955a1e392176c60a"},
+    {file = "TgCrypto-1.2.5-cp39-cp39-win32.whl", hash = "sha256:37c4b9be82716fbc6d2b123caef448eee28683888803db075d842327766f7624"},
+    {file = "TgCrypto-1.2.5-cp39-cp39-win_amd64.whl", hash = "sha256:6e96b3a478fae977228c5750194c20a18cde402bbbea6593de424f84d4a8893b"},
+    {file = "TgCrypto-1.2.5-pp37-pypy37_pp73-macosx_10_9_x86_64.whl", hash = "sha256:4d93686e6254eb0a32a0a60e849b41a867a2770b27b48f978fd391dce2b83aeb"},
+    {file = "TgCrypto-1.2.5-pp37-pypy37_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:7b7fe81fad7c64479c83f31fc10e79fb20a114bca414e5e17f5e0c8b363153f8"},
+    {file = "TgCrypto-1.2.5-pp37-pypy37_pp73-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:ace308f5842a0d6c04fc1ae92cb4320b4b13bfc711031c1c18d9124697685ba0"},
+    {file = "TgCrypto-1.2.5-pp37-pypy37_pp73-win_amd64.whl", hash = "sha256:36a570ecd12a428222b10ea8b5a8e0d83ea8750e4de1d5ea53d068b84341b450"},
+    {file = "TgCrypto-1.2.5-pp38-pypy38_pp73-macosx_10_9_x86_64.whl", hash = "sha256:ba9e067fd9751b3bbd7c979210431000e44f70001d921237e9c4672bf30f07bc"},
+    {file = "TgCrypto-1.2.5-pp38-pypy38_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:80e2414f1a95087d7e46fb54cb387df66424c4ec156fb1a8d8e1d4aa38eb65cf"},
+    {file = "TgCrypto-1.2.5-pp38-pypy38_pp73-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:66c5b5bf701b5efc3e4c5d83439d767a3dd48f17a1d840eda6b4d1918844a8f9"},
+    {file = "TgCrypto-1.2.5-pp38-pypy38_pp73-win_amd64.whl", hash = "sha256:5d27d6c414eb4775022b05fdd571090bfd92854115e86184ac1832060fbaa510"},
+    {file = "TgCrypto-1.2.5-pp39-pypy39_pp73-macosx_10_9_x86_64.whl", hash = "sha256:9b0a088ff2e05b6bbe891da936f62b99bd85202b2b9f4f57f71a408490dd518c"},
+    {file = "TgCrypto-1.2.5-pp39-pypy39_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f245895c7d518342089d15b5dca3cee9ffa5a0f3534db9d5a930f6a27dff4adf"},
+    {file = "TgCrypto-1.2.5-pp39-pypy39_pp73-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:7dbf607d645c39a577a0f8571039d11ddd2dcdf9656465be75f9e0f540472444"},
+    {file = "TgCrypto-1.2.5-pp39-pypy39_pp73-win_amd64.whl", hash = "sha256:d6b0c2dc84e632ce7b3d0b767cfe20967e557ad7d71ea5dbd7df2dd544323181"},
+    {file = "TgCrypto-1.2.5.tar.gz", hash = "sha256:9bc2cac6fb9a12ef5b08f3dd500174fe374d89b660cce981f57e3138559cb682"},
 ]
 toml = [
     {file = "toml-0.10.2-py2.py3-none-any.whl", hash = "sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b"},
